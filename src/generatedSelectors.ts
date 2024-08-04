@@ -24,8 +24,6 @@ export type ColorWheelSelectors = "[data-disabled]";
 
 export type ColorWheelTrackSelectors = "[data-disabled]";
 
-export type ItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
-
 export type LinkSelectors = "[data-current]" | "[data-hovered]" | "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]";
 
 export type BreadcrumbSelectors = "[data-current]";
@@ -39,8 +37,6 @@ export type RangeCalendarSelectors = ;
 export type CalendarCellSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-selection-start]" | "[data-selection-end]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-outside-visible-range]" | "[data-outside-month]" | "[data-unavailable]" | "[data-invalid]";
 
 export type ColorSwatchSelectors = ;
-
-export type DropIndicatorSelectors = "[data-drop-target]";
 
 export type ListBoxSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]" | '[data-layout="stack"]' | '[data-layout="grid"]';
 
@@ -57,8 +53,6 @@ export type GroupSelectors = "[data-hovered]" | "[data-focus-within]" | "[data-f
 export type OverlayArrowSelectors = '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]';
 
 export type PopoverSelectors = `[data-trigger="${string}"]` | '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]' | "[data-entering]" | "[data-exiting]";
-
-export type DialogSelectors = ;
 
 export type ComboBoxSelectors = "[data-open]" | "[data-disabled]" | "[data-invalid]" | "[data-required]";
 
@@ -102,8 +96,6 @@ export type SwitchSelectors = "[data-selected]" | "[data-hovered]" | "[data-pres
 
 export type TableSelectors = "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]";
 
-export type TableHeaderSelectors = "[data-hovered]";
-
 export type ColumnSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-allows-sorting]" | '[data-sort-direction="ascending"]' | '[data-sort-direction="descending"]' | "[data-resizing]";
 
 export type ColumnResizerSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-resizing]" | '[data-resizable-direction="right"]' | '[data-resizable-direction="left"]' | '[data-resizable-direction="both"]';
@@ -139,6 +131,4 @@ export type TreeSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-vis
 export type TreeItemSelectors = ;
 
 export type TreeItemContentSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
-
-export type TreeLoadingIndicatorSelectors = ;
 

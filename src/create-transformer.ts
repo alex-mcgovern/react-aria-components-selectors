@@ -1,7 +1,7 @@
 import * as ts from 'typescript';
 import * as fs from 'fs';
 import * as path from 'path';
-import { GridListItemRenderProps, PopoverRenderProps } from 'react-aria-components';
+import { ColorPickerRenderProps } from 'react-aria-components';
 
 const OMITTED = ["RenderProps", "StyleRenderProps"]
 
@@ -9,6 +9,8 @@ function isIncluded(n: ts.Node): n is ts.InterfaceDeclaration {
   return ts.isInterfaceDeclaration(n)
     && !OMITTED.includes(n.name.text)
     && n.name.text.endsWith('RenderProps')
+    && Boolean(n.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword));
+
 }
 
 function getExtends(i: ts.InterfaceDeclaration): ts.HeritageClause | undefined {
