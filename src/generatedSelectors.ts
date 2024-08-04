@@ -1,7 +1,3 @@
-export type StyleSelectors = ;
-
-export type Selectors = ;
-
 export type FieldErrorSelectors = ;
 
 export type CheckboxGroupSelectors = "[data-disabled]" | "[data-readonly]" | "[data-required]" | "[data-invalid]";
@@ -14,21 +10,21 @@ export type ColorAreaSelectors = "[data-disabled]";
 
 export type InputSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-invalid]";
 
-export type ColorFieldSelectors = "[data-disabled]" | "[data-invalid]" | '[data-channel="ColorChannel"]' | '[data-channel="hex"]';
+export type ColorFieldSelectors = "[data-disabled]" | "[data-invalid]" | '[data-channel="hex"]' | '[data-channel="hue"]' | '[data-channel="saturation"]' | '[data-channel="..."]';
 
-export type SliderSelectors = "[data-disabled]";
+export type SliderSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]' | "[data-disabled]";
 
-export type SliderTrackSelectors = "[data-hovered]";
+export type SliderTrackSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]' | "[data-disabled]" | "[data-hovered]";
 
 export type SliderThumbSelectors = "[data-dragging]" | "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]";
 
-export type ColorSliderSelectors = "[data-disabled]";
+export type ColorSliderSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]' | "[data-disabled]";
 
 export type ColorWheelSelectors = "[data-disabled]";
 
-export type ColorWheelTrackSelectors = ;
+export type ColorWheelTrackSelectors = "[data-disabled]";
 
-export type ItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
+export type ItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
 export type LinkSelectors = "[data-current]" | "[data-hovered]" | "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]";
 
@@ -48,7 +44,7 @@ export type DropIndicatorSelectors = "[data-drop-target]";
 
 export type ListBoxSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]" | '[data-layout="stack"]' | '[data-layout="grid"]';
 
-export type ListBoxItemSelectors = ;
+export type ListBoxItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
 export type ColorSwatchPickerSelectors = ;
 
@@ -58,9 +54,9 @@ export type ColorPickerSelectors = ;
 
 export type GroupSelectors = "[data-hovered]" | "[data-focus-within]" | "[data-focus-visible]" | "[data-disabled]" | "[data-invalid]";
 
-export type OverlayArrowSelectors = ;
+export type OverlayArrowSelectors = '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]';
 
-export type PopoverSelectors = "[data-entering]" | "[data-exiting]";
+export type PopoverSelectors = `[data-trigger="${string}"]` | '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]' | "[data-entering]" | "[data-exiting]";
 
 export type DialogSelectors = ;
 
@@ -80,19 +76,19 @@ export type DropZoneSelectors = "[data-hovered]" | "[data-focused]" | "[data-foc
 
 export type GridListSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]" | '[data-layout="stack"]' | '[data-layout="grid"]';
 
-export type GridListItemSelectors = ;
+export type GridListItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
-export type MenuItemSelectors = "[data-has-submenu]" | "[data-open]";
+export type MenuItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]" | "[data-has-submenu]" | "[data-open]";
 
-export type MeterSelectors = ;
+export type MeterSelectors = `[aria-valuetext]`;
 
 export type ModalSelectors = "[data-entering]" | "[data-exiting]";
 
 export type NumberFieldSelectors = "[data-disabled]" | "[data-invalid]";
 
-export type ProgressBarSelectors = ":not([aria-valuenow])";
+export type ProgressBarSelectors = `[aria-valuetext]` | ":not([aria-valuenow])";
 
-export type RadioGroupSelectors = "[data-disabled]" | "[data-readonly]" | "[data-required]" | "[data-invalid]";
+export type RadioGroupSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]' | "[data-disabled]" | "[data-readonly]" | "[data-required]" | "[data-invalid]";
 
 export type RadioSelectors = "[data-selected]" | "[data-hovered]" | "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-readonly]" | "[data-invalid]" | "[data-required]";
 
@@ -108,19 +104,19 @@ export type TableSelectors = "[data-focused]" | "[data-focus-visible]" | "[data-
 
 export type TableHeaderSelectors = "[data-hovered]";
 
-export type ColumnSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-allows-sorting]" | "[data-resizing]";
+export type ColumnSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-allows-sorting]" | '[data-sort-direction="ascending"]' | '[data-sort-direction="descending"]' | "[data-resizing]";
 
-export type ColumnResizerSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-resizing]" | '[data-resizable-direction="left"]' | '[data-resizable-direction="right"]' | '[data-resizable-direction="both"]';
+export type ColumnResizerSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-resizing]" | '[data-resizable-direction="right"]' | '[data-resizable-direction="left"]' | '[data-resizable-direction="both"]';
 
 export type TableBodySelectors = "[data-empty]" | "[data-drop-target]";
 
-export type RowSelectors = ;
+export type RowSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
 export type CellSelectors = "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-hovered]";
 
-export type TabsSelectors = ;
+export type TabsSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]';
 
-export type TabListSelectors = ;
+export type TabListSelectors = '[data-orientation="horizontal"]' | '[data-orientation="vertical"]';
 
 export type TabSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]";
 
@@ -132,17 +128,17 @@ export type TagSelectors = "[data-allows-removing]";
 
 export type TextFieldSelectors = "[data-disabled]" | "[data-invalid]" | "[data-readonly]" | "[data-required]";
 
-export type ToggleButtonSelectors = "[data-selected]";
+export type ToggleButtonSelectors = "[data-hovered]" | "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-selected]";
 
 export type ToolbarSelectors = ;
 
-export type TooltipSelectors = "[data-entering]" | "[data-exiting]";
+export type TooltipSelectors = '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]' | "[data-entering]" | "[data-exiting]";
 
 export type TreeSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]";
 
 export type TreeItemSelectors = ;
 
-export type TreeItemContentSelectors = ;
+export type TreeItemContentSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
 export type TreeLoadingIndicatorSelectors = ;
 
