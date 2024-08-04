@@ -20,13 +20,11 @@ function getExtends(i: ts.InterfaceDeclaration): ts.HeritageClause | undefined {
 function buildSelectorsForEnum(selector: string): string[] {
   // get the value inside the quotes
   const s = selector.replace(/"(.*?)"/, "{replace-me}")
-  console.debug("👉  s:", s)
   const v = selector.match(/"(.*?)"/)?.[1];
-  if (!v) return ""
+  if (!v) return []
 
 
   const options = v.split('|').map(opt => opt.trim().replace(/"/g, ''));
-  console.debug("👉  options:", options)
   return options.map(option => `'${s.replace("{replace-me}", `\"${option}\"`)}'`);
 
 }
@@ -45,13 +43,11 @@ interface SelectorInfo {
 }
 
 function generateSelectorsTypes(sourceFilePath: string, outputFilePath: string) {
-  console.debug("👉  sourceFilePath:", sourceFilePath);
   const program = ts.createProgram([sourceFilePath], {});
   const sourceFile = program.getSourceFile(sourceFilePath);
   const typeChecker = program.getTypeChecker();
 
   if (!sourceFile) {
-    console.error('Source file not found');
     return;
   }
 
@@ -63,10 +59,8 @@ function generateSelectorsTypes(sourceFilePath: string, outputFilePath: string) 
     if (isIncluded(node)) {
       const typeName = node.name.text;
   
-      // Initialize the renderPropsTypes entry
       renderPropsTypes[typeName] = [];
   
-      // Check if the interface extends another interface
       const extendedType = getExtends(node);
       if (extendedType) {
         const extendedTypeName = extendedType.types[0].expression.getText();
@@ -75,45 +69,42 @@ function generateSelectorsTypes(sourceFilePath: string, outputFilePath: string) 
         );
   
         if (extendedTypeNode) {
-          extendedTypeNode.members.forEach(member => {
-            if (ts.isPropertySignature(member) && member.jsDoc) {
-              const selectorTag = member.jsDoc[0].tags?.find(tag => tag.tagName.text === 'selector');
-              if (selectorTag && ts.isJSDocTag(selectorTag) && typeof selectorTag.comment === 'string') {
-                const propertyType = member.type
-                  ? typeChecker.typeToString(typeChecker.getTypeFromTypeNode(member.type))
-                  : 'any';
-                renderPropsTypes[typeName].push({
-                  selector: selectorTag.comment.trim(),
-                  type: propertyType
-                });
-              }
-            }
-          });
+          processMembers(extendedTypeNode.members, typeName);
         }
       }
   
       // Process the current interface's members
-      node.members.forEach(member => {
-        if (ts.isPropertySignature(member) && member.jsDoc) {
-          const selectorTag = member.jsDoc[0].tags?.find(tag => tag.tagName.text === 'selector');
-          if (selectorTag && ts.isJSDocTag(selectorTag) && typeof selectorTag.comment === 'string') {
-            const propertyType = member.type
-              ? typeChecker.typeToString(typeChecker.getTypeFromTypeNode(member.type))
-              : 'any';
-            renderPropsTypes[typeName].push({
-              selector: selectorTag.comment.trim(),
-              type: propertyType
-            });
-          }
-        }
-      });
+      processMembers(node.members, typeName);
     }
   });
+  
+  function processMembers(members: ts.NodeArray<ts.TypeElement>, typeName: string) {
+    members.forEach(member => {
+      if (ts.isPropertySignature(member) && member.jsDoc) {
+        const selectorTag = member.jsDoc[0].tags?.find(tag => tag.tagName.text === 'selector');
+        if (selectorTag && ts.isJSDocTag(selectorTag) && typeof selectorTag.comment === 'string') {
+          const propertyType = member.type
+            ? typeChecker.typeToString(typeChecker.getTypeFromTypeNode(member.type))
+            : 'any';
+          renderPropsTypes[typeName].push({
+            selector: selectorTag.comment.trim(),
+            type: propertyType
+          });
+        }
+      }
+    });
+  }
 
   let output = '';
 
 
   for (const [typeName, selectors] of Object.entries(renderPropsTypes)) {
+  console.debug("👉  renderPropsTypes:", renderPropsTypes)
+
+    if (selectors.length === 0) {
+      continue;
+    }
+
     if (typeof selectors === 'string') {
       output += selectors;
       continue;
@@ -121,7 +112,6 @@ function generateSelectorsTypes(sourceFilePath: string, outputFilePath: string) 
 
     output += `export type ${typeName.replace('RenderProps', 'Selectors')} = `;
     const typeMembers = selectors.map(({ selector, type }) => {
-      console.debug("👉  selector:", selector)
       if (type === 'boolean') {
         return `"${selector}"`;
       } else if (selector.includes('|')) {
@@ -135,7 +125,6 @@ function generateSelectorsTypes(sourceFilePath: string, outputFilePath: string) 
   }
 
   fs.writeFileSync(outputFilePath, output);
-  console.log(`Generated selectors types in ${outputFilePath}`);
 }
 
 // Usage

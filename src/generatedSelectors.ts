@@ -1,5 +1,3 @@
-export type FieldErrorSelectors = ;
-
 export type CheckboxGroupSelectors = "[data-disabled]" | "[data-readonly]" | "[data-required]" | "[data-invalid]";
 
 export type CheckboxSelectors = "[data-selected]" | "[data-indeterminate]" | "[data-hovered]" | "[data-pressed]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-readonly]" | "[data-invalid]" | "[data-required]";
@@ -32,21 +30,11 @@ export type ButtonSelectors = "[data-hovered]" | "[data-pressed]" | "[data-focus
 
 export type CalendarSelectors = "[data-disabled]" | "[data-invalid]";
 
-export type RangeCalendarSelectors = ;
-
 export type CalendarCellSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-selection-start]" | "[data-selection-end]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | "[data-outside-visible-range]" | "[data-outside-month]" | "[data-unavailable]" | "[data-invalid]";
-
-export type ColorSwatchSelectors = ;
 
 export type ListBoxSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]" | '[data-layout="stack"]' | '[data-layout="grid"]';
 
 export type ListBoxItemSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
-
-export type ColorSwatchPickerSelectors = ;
-
-export type ColorSwatchPickerItemSelectors = ;
-
-export type ColorPickerSelectors = ;
 
 export type GroupSelectors = "[data-hovered]" | "[data-focus-within]" | "[data-focus-visible]" | "[data-disabled]" | "[data-invalid]";
 
@@ -63,8 +51,6 @@ export type DateInputSelectors = "[data-hovered]" | "[data-focus-within]" | "[da
 export type DateSegmentSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-placeholder]" | "[data-readonly]" | "[data-disabled]" | "[data-invalid]";
 
 export type DatePickerSelectors = "[data-focus-within]" | "[data-focus-visible]" | "[data-disabled]" | "[data-invalid]" | "[data-open]";
-
-export type DateRangePickerSelectors = ;
 
 export type DropZoneSelectors = "[data-hovered]" | "[data-focused]" | "[data-focus-visible]" | "[data-drop-target]" | "[data-disabled]";
 
@@ -127,8 +113,6 @@ export type ToolbarSelectors = ;
 export type TooltipSelectors = '[data-placement="left"]' | '[data-placement="right"]' | '[data-placement="top"]' | '[data-placement="bottom"]' | "[data-entering]" | "[data-exiting]";
 
 export type TreeSelectors = "[data-empty]" | "[data-focused]" | "[data-focus-visible]";
-
-export type TreeItemSelectors = ;
 
 export type TreeItemContentSelectors = "[data-hovered]" | "[data-pressed]" | "[data-selected]" | "[data-focused]" | "[data-focus-visible]" | "[data-disabled]" | '[data-selection-mode="single"]' | '[data-selection-mode="multiple"]' | "[data-allows-dragging]" | "[data-dragging]" | "[data-drop-target]";
 
