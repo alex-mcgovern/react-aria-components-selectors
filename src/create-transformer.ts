@@ -1,7 +1,6 @@
 import * as ts from 'typescript';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ColorPickerRenderProps } from 'react-aria-components';
 
 const OMITTED = ["RenderProps", "StyleRenderProps"]
 
